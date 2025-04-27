@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #434343, #000000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #00bfff;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #007acc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="userName" placeholder="Enter your name" />
+    <br />
+    <button onclick="greetUser()">Login</button>
+  </div>
+
+  <script>
+    function greetUser() {
+      const name = document.getElementById("userName").value.trim();
+      if (name === "") {
+        alert("Please enter your name!");
+        return;
+      }
+
+      const greeting = `Hello ${name}, welcome! How are you?`;
+      const msg = new SpeechSynthesisUtterance(greeting);
+      msg.lang = "en-US";
+      msg.rate = 1;
+      speechSynthesis.speak(msg);
+
+      setTimeout(() => {
+        window.location.href = "main.html";
+      }, 2500);
+    }
+  </script>
+</body>
+</html>

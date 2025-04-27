@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hybrid Search</title>
+  <script async src="https://cse.google.com/cse.js?cx=e497b76af805e4e07"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #1c1c1c;
+      font-family: "Segoe UI", sans-serif;
+      color: #ededed;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 40px;
+      position: relative;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+    }
+
+    .intro-container {
+      position: absolute;
+      left: 40px;
+      top: calc(50% - 15px); /* Moved 15px upward */
+      transform: translateY(-50%);
+    }
+
+    .intro-text {
+      font-size: 56px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0ch;
+      border-right: 2px solid #13e232;
+      animation: typing 3s steps(23) forwards;
+      color: rgb(14, 221, 221);
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .intro-underline {
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background-color: #d7b66f;
+      opacity: 0;
+      animation: underlineGrow 0.8s ease-out 3s forwards,
+                 underlineFadeOut 1.5s ease-out 4.5s forwards;
+    }
+
+    @keyframes typing {
+      from { width: 0ch; }
+      to { width: 23ch; }
+    }
+
+    @keyframes underlineGrow {
+      from { width: 0; opacity: 1; }
+      to { width: 100%; opacity: 1; }
+    }
+
+    @keyframes underlineFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .search-section {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 5px 10px;
+      border-radius: 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      width: 50%;
+      max-width: 500px;
+      gap: 10px;
+    }
+
+    .search-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon img {
+      width: 24px;
+      height: 24px;
+      filter: invert(0.4);
+    }
+
+    .gcse-search {
+      flex-grow: 1;
+    }
+
+    .gsc-control-cse {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 10px !important;
+      background: transparent !important;
+      padding: 0 !important;
+      border: none !important;
+    }
+
+    .gsc-input-box {
+      background: none !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      flex-grow: 1 !important;
+    }
+
+    input.gsc-input {
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 10px 20px !important;
+      background-color: transparent !important;
+      color: #000 !important;
+      font-size: 18px !important;
+      width: 100% !important;
+      box-sizing: border-box;
+      box-shadow: none !important;
+    }
+
+    .gsc-search-button-v2 {
+      order: 2;
+      margin: 0 !important;
+      padding: 10px 16px !important;
+      background-color: #4285f4 !important;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .gcsc-branding, .gcsc-branding-text, .gsc-branding {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .gsc-completion-container {
+      background-color: #ffffff !important;
+      color: #000 !important;
+      border-radius: 0 !important;
+    }
+
+    .gsc-completion-selected {
+      background-color: #e0e0e0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="intro-container">
+      <div class="intro-text">Welcome To My Website</div>
+      <div class="intro-underline"></div>
+    </div>
+
+    <div class="search-section">
+      <div class="search-icon">
+        <img src="https://img.icons8.com/ios-filled/50/search--v1.png" alt="Search">
+      </div>
+      <div class="gcse-search"></div>
+    </div>
+  </div>
+
+</body>
+</html>

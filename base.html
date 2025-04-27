@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nidheesh Reddy - Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #c8d2dafa, #f9f9f9);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    .intro-container {
+      position: absolute;
+      left: 40px;
+      top: calc(50% - 15px);
+      transform: translateY(-50%);
+      z-index: 10; /* Higher than the images */
+    }
+
+    .intro-text {
+      font-size: 56px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0ch;
+      border-right: 2px solid #6b56ca;
+      animation: typing 3s steps(23) forwards;
+      animation-delay: 1.3s;
+      color: rgb(9, 10, 10);
+      font-family: "Audiowide", sans-serif;
+      z-index: 10; /* Ensure text stays above the images */
+    }
+
+    .intro-underline {
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background-color: #d7b66f;
+      opacity: 0;
+      animation: underlineGrow 0.8s ease-out 4.3s forwards,
+                 underlineFadeOut 1.5s ease-out 5.8s forwards;
+    }
+    .intro-iam {
+      position: absolute;
+      top: 450px;
+      left: 60px;
+      font-size: 18px;
+      color: #a43b81;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 3.2s forwards;
+    }
+
+    .sub-text {
+      margin-top: 30px;
+      font-size: 28px;
+      font-family: Copperplate, Papyrus, fantasy;
+      color: rgb(75, 63, 24);
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 2.3s forwards;
+    }
+
+    .image-gallery {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1; /* Lower than the text */
+      top: 250px;
+      gap: 30px;
+      padding-bottom: 60px;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 3.6s forwards;
+    }
+
+    .gallery-item {
+      text-align: center;
+    }
+
+    .gallery-item img {
+      width: 130px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.5);
+    }
+
+    .gallery-item span {
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .name-highlight {
+      position: absolute;
+      z-index: 10; /* Ensure it's above the images */
+      top: 739px;
+      font-family: "Sofia", sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      color: rgb(169, 150, 93);
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out 4.2s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes typing {
+      from { width: 0ch; }
+      to { width: 23ch; }
+    }
+
+    @keyframes underlineGrow {
+      from { width: 0; opacity: 1; }
+      to { width: 100%; opacity: 1; }
+    }
+
+    @keyframes underlineFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    .final-layout {
+      width: 650px;
+      max-width: 90%;
+      background: #222;
+      border-radius: 20px;
+      border: 2px solid #555;
+      padding: 20px;
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .final-sections {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      transition: transform 1s ease-in-out;
+    }
+
+    .section {
+      flex: 1;
+      text-align: center;
+      width: 250px;
+      position: relative;
+    }
+
+    .section img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #999;
+      margin-bottom: 10px;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .section .name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ddd;
+      display: inline-block;
+      position: relative;
+    }
+
+    .name:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, red, yellow, green, blue);
+      transition: none;
+    }
+
+    .name.animate-underline:after {
+      animation: underlineAnimation 1s forwards;
+    }
+
+    @keyframes underlineAnimation {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+    .web-qr{
+      height: 185px;
+      width: 207px;
+      position: relative;
+      z-index: 1;
+      left: 120px;
+      top: 57px;
+      padding-bottom: 22px;
+    }
+    .para{
+      position: relative;
+      z-index: 1;
+      top: 43px;
+      font-size: 22px;
+    }
+
+    .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px; /* Add some space from top */
+    }
+
+    .portfolio-box {
+      width: 200px;
+      height: 100px;
+      background-color: white;
+      border: 2px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      border-radius: 12px;
+    }
+
+    .portfolio-box:hover {
+      border-color: rgb(0, 255, 183);
+      box-shadow: 0 6px 12px rgba(0, 0, 255, 0.3);
+    }
+
+    .portfolio-link {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .portfolio-link:hover {
+      color: rgb(133, 234, 190);
+      text-decoration: underline;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+  <div class="intro-container">
+    <div class="intro-text">Welcome To My Website</div>
+    <div class="intro-underline"></div>
+  </div>
+  <div class="intro-iam">I am</div>
+</div>
+
+<div class="hero">
+  <h2 class="sub-text">Si vous voulez me connaître sans moi, ce site est fait pour vous ?</h2>
+
+  <div class="image-gallery">
+    <div class="gallery-item"><img src="3.jpg" alt="N" /><span style="color: grey;">N</span></div>
+    <div class="gallery-item"><img src="2.jpg" alt="I" /><span style="color: gray;">I</span></div>
+    <div class="gallery-item"><img src="1.jpg" alt="D" /><span style="color: grey;">D</span></div>
+    <div class="gallery-item"><img src="4.jpg" alt="H" /><span style="color: gray;">H</span></div>
+    <div class="gallery-item"><img src="8.jpg" alt="E" /><span style="color: gray;">E</span></div>
+    <div class="gallery-item"><img src="6.jpg" alt="E" /><span style="color: grey;">E</span></div>
+    <div class="gallery-item"><img src="7.jpg" alt="S" /><span style="color: grey;">S</span></div>
+    <div class="gallery-item"><img src="5.jpg" alt="H" /><span style="color: grey;">H</span></div>
+  </div>
+
+  <div class="name-highlight">REDDY</div>
+</div>
+
+<div id="finalLayout" class="final-layout">
+  <div class="final-sections">
+    <div class="section" id="section1">
+      <img src="ramc.jpg" alt="Ram Charan" class="image" id="image1">
+      <div class="name" id="name1">Ram Charan</div>
+    </div>
+    <div class="section" id="section2">
+      <img src="dhoni.jpg" alt="MS Dhoni" class="image" id="image2">
+      <div class="name" id="name2">MS Dhoni</div>
+    </div>
+  </div>
+  <h2><p>These are my favorite actor and sports person!</p></h2>
+</div>
+
+<div class="center-container">
+  <div class="portfolio-box">
+    <a href="https://nidheesh-portofolio-pi-ashy.vercel.app/" 
+       target="_blank" 
+       title="Nidheesh Reddy" 
+       class="portfolio-link">
+      Visit My Portfolio
+    </a>
+  </div>
+</div>
+
+<div>
+  <img class="web-qr" src="web site qr.png" alt="">
+  <p class="para" style="color: black;">This is the webisite feedback QR...try to scan it and provide ur feedback</p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const name1 = document.getElementById("name1");
+    const name2 = document.getElementById("name2");
+    const section1 = document.getElementById("section1");
+    const section2 = document.getElementById("section2");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === section1 || entry.target === section2) {
+            setTimeout(() => {
+              name1.classList.add("animate-underline");
+              name2.classList.add("animate-underline");
+
+              const tempSrc = document.getElementById("image1").src;
+              document.getElementById("image1").src = document.getElementById("image2").src;
+              document.getElementById("image2").src = tempSrc;
+            }, 1300);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(section1);
+    observer.observe(section2);
+  });
+</script>
+
+</body>
+</html>
